@@ -25,19 +25,9 @@
 
 ## Repository Structure
 
-The repository is structured as follows:
+Структура репозитория:
 
-- `paper`: This directory contains the main paper in PDF format (`diploma_text.pdf`) 
+- `paper`: содержит текст работы, предентанцию и исходники
 <!-- and the LaTeX source files in paper/source. -->
-- `code`: This directory contains the code used in the paper. 
+- `code`: содержит код экспериментов. Инструкции по установке и запуску внутри директории. 
 <!-- It has its own `README.md` file providing a detailed description of the code files. -->
-
-# Установка
-
-Чтобы повторить результаты вычислительного эксперимента, рекомендуется установить все необходимые зависимости.
-Файл ``requirements.txt`` находится в директории ``code``.
-Для установки
-
-- Сделайте ``git clone`` этого репозитория.
-- Создайте новое ``conda`` окружение и активируйте его.
-- Запустите ``pip install -r requirements.txt``.

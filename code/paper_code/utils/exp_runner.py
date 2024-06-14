@@ -4,7 +4,7 @@ import numpy as np
 
 from .timer import timer
 from ..altorithm import gamma_for_budget
-from ..exact_solver import gamma_exact
+from ..simple_example.exact_solver import gamma_exact
 
 def compute_for_budgets(c_x, x_s, v_s, L_s, max_budgets, budget_init, cases, exact = False, norm = 1, iterations = 1, n_jobs = 5):
     if exact:
