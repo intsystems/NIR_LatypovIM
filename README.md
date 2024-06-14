@@ -1,8 +1,21 @@
-# Эффективный метод скаляризации и поиска конкурентного решения без итеративных вычислений для Липшицевых функций
-
-**Author:** Ильгам Латыпов
-
-**Advisor:** Юрий Дорн
+<table>
+    <tr>
+        <td align="center"> <b> Название исследуемой задачи </b> </td>
+        <td> Эффективный метод скаляризации и поиска конкурентного решения без итеративных вычислений для Липшицевых функций </td>
+    </tr>
+    <tr>
+        <td align="center"> <b> Тип научной работы </b> </td>
+        <td> ВКР </td>
+    </tr>
+    <tr>
+        <td align="center"> <b> Автор </b> </td>
+        <td> Латыпов Ильгам Магданович </td>
+    </tr>
+    <tr>
+        <td align="center"> <b> Научный руководитель </b> </td>
+        <td> к.т.н. Дорн Юрий Владимирович </td>
+    </tr>
+</table>
 
 ## Abstract
 
@@ -18,3 +31,13 @@ The repository is structured as follows:
 <!-- and the LaTeX source files in paper/source. -->
 - `code`: This directory contains the code used in the paper. 
 <!-- It has its own `README.md` file providing a detailed description of the code files. -->
+
+# Установка
+
+Чтобы повторить результаты вычислительного эксперимента, рекомендуется установить все необходимые зависимости.
+Файл ``requirements.txt`` находится в директории ``code``.
+Для установки
+
+- Сделайте ``git clone`` этого репозитория.
+- Создайте новое ``conda`` окружение и активируйте его.
+- Запустите ``pip install -r requirements.txt``.
