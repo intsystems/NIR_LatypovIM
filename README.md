@@ -1,18 +1,20 @@
-# Balancing Efficiency and Interpretability: A New Approach to Multi-Objective Optimization with High Computation Costs in Lipschitz Functions
+# Эффективный метод скаляризации и поиска конкурентного решения без итеративных вычислений для Липшицевых функций
 
-**Author:** Ilgam Latypov
+**Author:** Ильгам Латыпов
 
-**Advisor:** Yuriy Dorn
+**Advisor:** Юрий Дорн
 
 ## Abstract
 
-In practical engineering and optimization scenarios, tackling multi-objective optimization (MOO) problems often involves employing scalarization methods. Traditional approaches, while being effective, often entail significant computational overhead due to iterative computations. In this paper, we propose a novel method specifically tailored for Lipschitz objective functions aimed at computing function values only once, thus substantially reducing computational costs. This approach is advantageous in scenarios where function computation is expensive or where function values are computed once and then computation become unavailable. Our algorithm uses the Gembchiki scalarization method, is formulated as a convex optimization problem and offers efficient and practical solution to MOO problems. Additionally, we propose interpretable parameters selection for the scalarization method, enhancing the interpretability and practical applicability of the optimization results. Empirical evaluations, conducted on graph-based supply network problems, demonstrate the effectiveness and scalability of our approach, highlighting its potential to address computational challenges in MOO across various domains.
+В практических инженерных и оптимизационных приложениях решение задач многоцелевой оптимизации часто подразумевает использование методов скаляризации. Хоть известные подходы могут и быть эффективными, они часто сопряжены со значительными вычислительными затратами из-за необходимости итеративных вычислений, а также их использование усложняется необходимостью подбора гиперпараметров.
+В этой работе предлагается переопределить понятие конкурентного решения, чтобы получить интерпретируемый метод скаляризации, не требующий настройки гиперпараметров. Для предложенного метода скаляризации предлагается способ получения приближенного решения в случае, когда функции липшицевы и их вычисление возможно только один раз. Это актуально, когда вычисления очень дорогие или повторное вычисление невозможно.
+Вычислительные эксперименты, проведенные для задачи конкурирующих потоков минимальной цены, демонстрируют работоспособность и масштабируемость предложенного подхода, подчеркивая его потенциал для решения вычислительных проблем в MOO в различных областях.
 
 ## Repository Structure
 
 The repository is structured as follows:
 
-- `paper`: This directory contains the main paper in PDF format (`main.pdf`) 
-<!-- and the LaTeX source file (`main.tex`). Also there is a directory `figs` with images used in the paper. -->
+- `paper`: This directory contains the main paper in PDF format (`diploma_text.pdf`) 
+<!-- and the LaTeX source files in paper/source. -->
 - `code`: This directory contains the code used in the paper. 
 <!-- It has its own `README.md` file providing a detailed description of the code files. -->

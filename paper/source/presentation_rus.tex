@@ -1,0 +1,318 @@
+\documentclass{beamer}
+\beamertemplatenavigationsymbolsempty
+\usecolortheme{beaver}
+\usepackage{tikz}
+\setbeamertemplate{blocks}[rounded=true, shadow=true]
+\setbeamertemplate{footline}
+[page number]
+%
+\usepackage{datetime}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amssymb,amsfonts,amsmath,mathtext}
+\usepackage{subfig}
+\usepackage[all]{xy} % xy package for diagrams
+\usepackage{array}
+\usepackage{multicol} % many columns in slide
+\usepackage{hyperref}
+\usepackage{algpseudocode}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\usepackage{hhline} %tables
+\usepackage{comment} %comments
+\newcommand\marker[2]{{\fboxsep=0pt\colorbox{#1}{\strut #2}}}
+\newcommand{\tvi}{f_i(x_i)}
+
+\usepackage[style=ieee]{biblatex}
+\addbibresource{biblio.bib}
+
+% Your figures are here:
+\graphicspath{ {../figures/} }
+\include{styles/newcommands}
+\include{metainfo}
+\newcommand{\secref}[1]{\autoref{#1}. \nameref{#1}}
+%----------------------------------------------------------------------------------------------------------
+
+% \title[\hbox to 56mm]{\paperName}
+% \author[И. М. Латыпов]{Latypov Ilgam Magdanovich}
+% \institute[]{Moscow Institute of Physics and Technology, IAI MSU}
+
+
+% \begin{document}
+% \begin{frame}
+%     \maketitle
+%     \parbox{5,2cm}{NET conference 2024}
+%     \hfill\parbox{3,4cm}{
+%     \begin{small}        
+%     \textbf{scientific supervisor:}\\
+%         % \\к.т.н. Ю. В. Дорн
+%         c.t.s. Dorn Y.V.
+%     \end{small}
+%     }
+% \end{frame}
+%----------------------------------------------------------------------------------------------------------
+
+\title[\hbox to 56mm]{\paperName}
+\author[И. М. Латыпов]{Latypov I. M., Dorn Y.V.}
+\institute[]{Moscow Institute of Physics and Technology, IAI MSU}
+\titlegraphic{NET conference 2024}
+
+\begin{document}
+
+
+% \begin{frame}
+\begin{titlepage}
+    % \maketitle
+    \title[\hbox to 50mm]{\paperName}
+    \author[И. М. Латыпов]{Latypov I. M., Dorn Y.V.}
+    % \date{}
+    % \today
+    \institute[]{Moscow Institute of Physics and Technology, IAI MSU}
+    \hfill
+    \titlegraphic{NET conference 2024}
+    % \today
+\end{titlepage}
+    
+% \end{frame}
+\begin{frame}{Пример для мотивации}
+    При оптимизации топологии телекоммуникационных сетей необходимо балансировать между несколькими метриками:
+    \begin{enumerate}
+        \item Задержка в сети
+        \item Пропускная способность
+        \item Устойчивость сети
+        \item ...
+    \end{enumerate}
+    Мы хотим получить сеть, которая будет хороша по всем метрикам, но для этого по каждой метрике требуется решить сложную задачу оптимизации.
+\end{frame}
+\begin{frame}{Проблема}
+\begin{block}{Проблема}
+    Существуют задачи многокритериальной оптимизации, в которых функции либо сложно вычислить, либо их перерасчёт невозможен.
+\end{block}
+\begin{block}{Исследовательская задача}
+    Необходимо поставить задачу оптимизации для такого случая и предложить метод её приближенного решения. Метод должен работать только с уже известными значениями функций.
+\end{block}
+\begin{block}{Результаты}
+\begin{list}{$\circ$}{}
+    \item Поставлена и обобщена задача оптимизации для поиска конкурентного решения.
+    \item Предложен метод нахождения приближенного решения для липшицевых и монотонных функций.
+\end{list}
+\end{block}
+\end{frame}
+
+\begin{frame}{Обозначения}
+\begin{list}{$\circ$}{}
+    \item $x \in \mbR^n$
+    \item Множество решений $K$ является выпуклым, замкнутым и снабжено нормой $\|\cdot\|$
+    \item функции $f_i: \mbR^n \rightarrow \mbR_+ ~~ i = \overline{1, m}$
+    \item Пусть $x_i = \text{arg}\min_{x \in K} f_i(x)$. 
+    \item $f_i(x_i) = \tvi$
+\end{list}
+\end{frame}
+
+\begin{frame}{Задача оптимизации}
+
+\begin{definition}[$\gamma$-конкурентная точка]
+$x$ называется $\gamma$-конкурентной точкой, если для всех $i$ выполняется:
+\begin{align}
+    f_i(x) \leq (1 + \gamma) f_i^*
+\end{align}
+\end{definition}
+
+\begin{block}{Задача оптимизации}
+    \begin{align*}
+    \min_{x, \gamma} \gamma & \tag{$T_1$}\label{opt:T1} \\    
+    \text{s.t.}~~ & x \in K \\
+                 &f_i(x) - \tvi \leq  \gamma \tvi, ~~  i\in\overline{1, m}
+    \end{align*}
+\end{block}
+ 
+\end{frame}
+
+\begin{frame}{Метод}
+\begin{definition}[Условие Липшица]
+\label{def:lipshitz_function}
+    Функция $f : \mbR^n \rightarrow \mbR+$ удовлетворяет условию Липшица на $K$ с нормой $\|\cdot\|$:  
+    $$
+    \exists L > 0: ~ \forall x, y \in K:~  |f(x) - f(y) | \le L \|x -y\|
+    $$
+\end{definition}
+
+\begin{itemize}
+    \item Для всех $i = \overline{1, m}$ для $f_i(x):\mbR^n \rightarrow\mbR_+$:
+        \begin{itemize}
+            \item Удовлетворяет условию Липшица \ref{def:lipshitz_function} с константой $L_i$ на $K$.
+            \item Вычислена в точке $x_i: \tvi$.
+            \item Функция минимизируется.
+        \end{itemize}
+\end{itemize}
+     Мы ищем $x \in K$, который является допустимым для \ref{opt:T1}. \\
+     Метод не должен вычислять функции во время поиска решения.
+\end{frame}
+
+\begin{frame}{Метод}
+\begin{block}{Предлагаемая переформулировка}      
+    \begin{align*}
+    \min_{x, \gamma} \gamma &  \tag{$T_2$}\label{opt:T2}  \\    
+    \text{s.t.}~~ & x \in K \\
+            & \| x - x_i\| \leq \frac{1}{L_i}(\gamma \tvi)  ~~ \forall i\in\overline{1,m}\\
+                &\marker{gray}{$f_i(x) - \tvi \leq  \gamma \tvi ~~  i\in\overline{1, m}$ ~~~\text{(T1)}}
+    \end{align*}
+\end{block}
+
+\begin{block}{Объяснение}
+      Рассмотрим допустимые $x, \gamma$ из \ref{opt:T2}. Тогда для всех $i=\overline{1, m}$:
+    \begin{equation}
+        \|x_i - x\| \leq \frac{\gamma \tvi}{L_i}  \Rightarrow 
+         |f_i(x) - \tvi| \leq \gamma \tvi
+    \end{equation}
+            \item Это означает, что $x, \gamma$ являются допустимыми для \ref{opt:T1}.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Пример для обобщения}
+
+\begin{example}[Функция, которую нельзя пересчитать]\label{example:2}
+    Служба доставки работала с различными стратегиями -- точками $x_i$ и вычисляла метрики -- $f_i(x_i)$. Теперь они хотят установить некоторые параметры, которые будут гарантировать значения метрик, если ситуация будет похожа на уже известные.
+\end{example}
+
+\begin{definition}[$\gamma$-конкурентная точка]
+$x$ называется относительно $\gamma$-конкурентной точкой для функций $f_i$ и точек $x_i$, если для всех $i$:
+\begin{align}
+    f_i(x) \leq (1 + \gamma) f_i(x_i)
+\end{align}
+\end{definition}
+
+\end{frame}
+
+\begin{frame}{Метод}
+    Мы можем использовать монотонность функций по параметрам для упрощения ограничений. Для этого введем оператор 
+    $\clip_f: \mbR^n \times \mbR^n \rightarrow \mbR^n$:
+
+\begin{equation}\label{def:clip}
+    \clip_f(x, y)_i =         
+    \begin{cases}
+    \max(x_i - y_i, 0) & f ~\text{возрастает по} ~x_i \\
+    \min(y_i - x_i, 0) & f ~\text{убывает по} ~ x_i \\
+    x_i - y_i & \text{иначе}
+        
+    \end{cases}
+\end{equation}
+
+\baselineskip
+\baselineskip
+
+\begin{minipage}{0.3\textwidth}
+\begin{align*}
+\min c^Tx \\
+Ax \leq b    
+\end{align*}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+    
+    \begin{figure}
+ \resizebox{0.9\textwidth}{!}{
+\input{figures/tikz/demo_fig.tikz}
+    } 
+\end{figure}
+
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}{Метод}
+    \begin{align*}
+        \min_{x, \gamma} \gamma & \tag{$T_2$}\label{opt:T2} \\
+        \text{s.t. } &x \in K \\
+                     &\| x - x_i\| \leq \frac{1}{L_i}(\gamma \tvi)  ~~ \forall i\in\overline{1,m}
+    \end{align*}
+    $\longmapsto$
+    \begin{align*}
+    \min_{x, \gamma} \gamma & \tag{$T_3$}\label{opt:T3} \\
+    \text{s.t. } &x \in K \\
+                 &\|clip(x,x_i, f_i)\| \leq \frac{1}{L_i}(\gamma \tvi) ~~ \forall i\in\overline{1,m}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Теоретические результаты}
+\newtheorem{theorem}{Теорема}
+    \begin{align*}
+    \min_{x, \gamma} \gamma & \tag{$T_3$}\label{opt:T3} \\
+    \text{s.t. } &x \in K \\
+                 &\|clip_{f_i}(x,x_i)\| \leq \frac{1}{L_i}(\gamma f_i(x_i)) ~~ \forall i\in\overline{1,m} \\
+                &\marker{gray}{$f_i(x) - \tvi \leq  \gamma \tvi ~~  i\in\overline{1, m}$ ~~~\text{(T1)}}
+    \end{align*}
+    
+\begin{theorem}[Latypov, 2024]
+    Решение $(x, \gamma)$ задачи \ref{opt:T3} является выполнимой точкой для  \ref{opt:T1}
+\end{theorem}
+
+\newcommand{\sto}{\gamma^*} % solition task 2 
+\newcommand{\stt}{\wt{\gamma}} % solition task 3
+\newcommand{\stf}{\overline{\gamma}} % solition task 4
+\newcommand{\km}{\kappa{\max}}
+\begin{theorem}[Latypov, 2024]
+Пусть $\sto$ является решением задачи \ref{opt:T3}. Если у нас есть аппроксимации констант Липшица $\widetilde{L_i} = \kappa_i L_i$, тогда решая задачу \ref{opt:T3}, в которой константы Липшица заменены на $\widetilde{L_i}$, мы получаем $x$, для которого $|f(x) - \tvi| \leq \frac{\kappa_{\max}}{\kappa_i} \sto \tvi$. Здесь $\kappa_{\max} = \max_{i = \overline{1,m}} \kappa_i$.
+\end{theorem}
+\end{frame}
+\begin{frame}{Эксперимент: Введение}
+\begin{block}{Функция}
+    \begin{align*}
+        f(b, \xi) = c_b^T \cdot b + c_a^T \cdot \max(r_{\xi} - b, 0)
+    \end{align*}
+    Каждый вектор из $\mbR^n$, $c_b \le c_a$ покомпонентно.
+\end{block}
+
+\begin{block}{Пояснение}
+    Представим, что компания потребляет случайное количество ресурсов $r_{\xi}$ в каждом периоде. 
+В начале периода можно купить $b$ по более низкой цене. 
+При необходимости они докупают недостающие ресурсы по более высокой цене.
+\end{block}
+    \begin{itemize}
+        \item Компания проработала $m$ периодов и наблюдала для $i \in \overline{1, m}: r_\xi, c_b^i, c_a^i$ количество ресурсов $b_i$. 
+        \item $K = \{b: c_b^T \cdot b \leq B \}$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Эксперимент: результаты}
+
+    \begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/simplest/relations.png}
+                \caption{Зависимость относительных приростов функции от бюджета для разных подходов.}
+        \label{fig:enter-label}
+    \end{figure}
+    
+\end{frame}
+
+\begin{frame}{Эксперимент: результаты}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.5\textwidth]{figures/simplest/relative_difference.png}
+        \caption{Относительная разница результатов аппроксимаций с точным решением.}
+        \label{fig:enter-label}
+    \end{figure}
+    
+\end{frame}
+
+\begin{frame}{Итоги}
+    Выносится на защиту:
+    \begin{itemize}
+        \item Предложен метод скаляризации с хорошей интерпретацией и метод поиска приближенного решения, не требующий вычисления функций.
+        \item Проведен теоретический анализ для случая неточных параметров.
+        \item Представленные эксперименты демонстрируют полезность предложенного метода.
+    \end{itemize}
+\end{frame}
+
+
+\end{document}
+
+
+    

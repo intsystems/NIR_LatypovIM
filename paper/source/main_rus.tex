@@ -1,0 +1,42 @@
+\documentclass[14pt]{extarticle}
+
+\input{metainfo}
+\input{styles/diploma/preamble}
+% \input{styles/gost_preamble}
+\input{styles/newcommands}
+\usepackage{tikz}
+\usepackage{catchfilebetweentags}
+
+\begin{document}
+
+\input{sections/title}
+\setcounter{page}{2}
+
+\tableofcontents
+\newpage
+\begin{center}
+    \Large{\textbf{Аннотация}}
+\end{center}
+\abstractText
+\newpage
+
+
+% \input{sections/text}
+\section{Введение} 
+\input{sections_rus/intro_russian}
+\newpage
+\input{sections_rus/method_russian}
+\newpage
+\input{sections_rus/theorems_russian}
+\newpage
+\input{sections_rus/experiments_rus}
+
+\newpage
+\section{Выводы}
+В работе предложен метод скаляризации, не требующий подбора гиперпараметров, который представляет собой обобщение понятия конкурентного решения. Мы также показали связь нашего метода скаляризации с подходом, предложенным в \cite{gembicki1975approach}.
+
+Для случая Липшицевых функций мы представили метод приближенного решения задачи оптимизации. Этот метод особенно полезен в случаях, когда вычисления функций являются дорогими, так как он работает только с заранее вычисленным набором значений. Необходимость таких методов обусловлена масштабами современных задач, например, в области оптимизации топологии телевизионных сетей и сетей поставок. Проведенные эксперименты продемонстрировали эффективность и практическую полезность предложенного метода, подтверждая его применимость в разных сценариях.
+\newpage
+\bibliographystyle{unsrt}
+\bibliography{biblio}
+\end{document} 

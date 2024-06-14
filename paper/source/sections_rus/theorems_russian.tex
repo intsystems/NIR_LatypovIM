@@ -1,0 +1,85 @@
+\section{Теоремы}\label{sec:theorems}
+
+Теперь исследуем свойства предложенных задач оптимизации. Поставленные задачи являются выпуклыми. Сначала продемонстрируем, что решение задачи \ref{opt:T3} удовлетворяет необходимым условиям. Далее рассмотрим, какое решение можно получить, если знать только приближения констант Липщица. Такая ситуация распространена в приложениях из-за отсутствия полного доступа к функциям.
+
+\begin{theorem}[Latypov, 2024]
+    Решение $(x, \gamma)$ задачи \ref{opt:T3} является выполнимой точкой для  \ref{opt:T1}
+\end{theorem}
+
+
+\begin{proof}    
+Пусть $z_i = \clip_{f_i}(x, x_i)$ и $y_i = x - z_i$. Для этого $y_i$ выполняется $f_i(y_i) \leq f_i(x_i)$ в силу монотонности функции и способа построения точки $y_i$. Также воспользуемся неравенством $\| x - y_i\| = \|z_i\| \leq \frac{\gamma \tvi}{L_i}$ и получим $f_i(x) - f_i(y_i) \leq \gamma \tvi$. Просуммировав неравенства получаем требуемое утверждение:  $f_i(x) - f_i(x_i) \leq \gamma \tvi$.
+\end{proof}
+
+\newcommand{\sto}{\gamma^*} % solition task 2 
+\newcommand{\stt}{\wt{\gamma}} % solition task 3
+\newcommand{\stf}{\overline{\gamma}} % solition task 4
+\newcommand{\km}{\kappa_{\max}}
+\begin{theorem}[Latypov, 2024]
+    Пусть даны аппроксимации констант Липшица для функций, обозначим их $\widetilde{L_i} = \kappa_i L_i$. Обозначим $\sto$ -- решение задачи \ref{opt:T3}.  Тогда, решив задачу \ref{opt:T3_wt}:
+    
+    \begin{align*}
+    \min_{x, \gamma} \gamma & \tag{$\widetilde{T_3}$}\label{opt:T3_wt} \\
+    \text{s.t. } &x \in K \\
+                 &\|clip_{f_i}(x,x_i)\| \leq \frac{1}{\widetilde{L_i}}(\gamma \tvi) ~~ \forall i\in\overline{1,m}
+    \end{align*}
+    Получим решение $x$, для которого выполнено:
+    $$|f(x) - f(x_i)| \leq \frac{\kappa_{\max}}{\kappa_i}\sto \tvi$$
+    Здесь $\kappa_{\max} = \max_{i =\overline{1,m}} \kappa_i$.
+\end{theorem}
+\begin{comments}
+
+        Если все константы умножены на один и тот же множитель, то мы получим тот же $x$ что и для задачи с точными констанами.     
+        
+        Значительное ухудшение значения функции может произойти в случае, если какие-то константы оценены сильно хуже чем остальные.
+        
+        \ref{opt:T3_wt} отличается от \ref{opt:T3}, только заменой констант Липшица на приближенные.
+    
+\end{comments}
+
+\begin{proof}
+     Введем задачу оптимизации, в которой все константы Липшица домножены на $\kappa_{max}$:
+
+    \begin{align*}
+    \min_{x, \gamma} \gamma & \tag{$T_4$}\label{opt:T4} \\
+    \text{s.t. } &x \in K \\
+                 &\|\clip_{f_i}(x, x_i)\| \leq \frac{1}{\kappa_{\max} L_i}(\gamma  v_i ) ~~ \forall i\in\overline{1,m}
+\end{align*}
+
+    Обозначим $\stt$ решение \ref{opt:T3} с константами $\widetilde{L_i}$, соответствующая ей задача \ref{opt:T3_wt}. Также через $\stf$ -- решение задачи \ref{opt:T4}.
+    
+     Заметим, что если в задачах \ref{opt:T3} и \ref{opt:T4} сделать замены $\gamma = a$ и $\frac{\gamma}{\kappa_{\max}} = a$ соответственно, то получим одну и ту же задачу, следовательно выполнено $\sto = \frac{\stf}{\kappa_{\max}}$.
+
+    Для задач $\widetilde{T_3}$  и \ref{opt:T4} выполнено соотношение $\stt \leq \stf$: можем рассмотреть пересечение шаров в решении \ref{opt:T4} с параметром $\stf$. Если радиусы шаров увеличить то пересечение станет больше и сможем уменьшить $\gamma$, что и происходит в $\widetilde{T_3}$.
+
+     Итого получаем $\stt \leq \kappa_{\max}(\sto )$ и из условий на радиусы в $\widetilde{T_3}$ $x$ удовлетворяет условиям:
+     \begin{equation}
+         |f(x) - f(x_i)| \leq \frac{L_i}{L_i \kappa_i}(\stt) \leq \frac{\kappa_{\max}}{ \kappa_i}(\sto)
+     \end{equation}
+\end{proof}
+
+\begin{comments}[Оптимальность полученной оценки]
+    Для полученной оценки ухудшения качества приближенного решения рассмотрим пример с двумя функциями: $f_1(x) = 1 + L_1|x|$ и $f_2(x) = 1 + L_2|x-1|$ и возьмем $x_1 = 0, x_2 = 1$ 
+
+    Тогда для \ref{opt:T3} получаем решение $\sto:(\sto)(\frac{1}{L_1} + \frac{1}{L_2}) = 1$. Для этой же задачи с неточными константами $\wt{L_i} = \kappa_i L_i$ получаем $\stt:(\stt)(\frac{1}{L_1\kappa_1} + \frac{1}{L_2\kappa_2}) = 1$.
+
+    Отсюда для случая $L_2 << L_1$ и $\kappa_1 = 1$(точно знаем $L_1$):
+    \begin{equation}
+        \frac{\stt}{\sto} = 
+        \frac{\frac{1}{L_1} + \frac{1}{L_2}}{\frac{1}{L_1\kappa_1} + \frac{1}{L_2\kappa_2}} = 
+        \frac{\frac{L_2}{L_1} + 1}{\frac{L_2}{L_1\kappa_1} + \frac{1}{\kappa_2}} \approx \kappa_2
+    \end{equation}
+    То есть полученное решение будет близко к границе, полученной в теореме.  
+    \hyperref[fig:theorem_example]{Рисунок 2} наглядно показывает смещение точки, которую находит алгоритм.
+    \begin{figure}
+\begin{center}    
+ \resizebox{0.5\textwidth}{!}{
+\input{figures/tikz/example_fig.tikz}
+    } 
+        \caption{Последствия неточной оценки константы липшица. Пересечение серых кругов $z_1$ -- точное решение. Однако алгоритм находит $z_2$ из-за неправильной оценки констант.}
+\end{center}
+\label{fig:theorem_example}
+\end{figure}
+
+\end{comments}
+

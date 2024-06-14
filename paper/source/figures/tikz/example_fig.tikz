@@ -1,0 +1,41 @@
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Circle [id:dp8664458953041292] 
+\draw  [color={rgb, 255:red, 105; green, 40; blue, 40 }  ,draw opacity=1 ][fill={rgb, 255:red, 3; green, 14; blue, 10 }  ,fill opacity=0.14 ][line width=0.75]  (162.28,113) .. controls (162.28,86.09) and (184.09,64.28) .. (211,64.28) .. controls (237.91,64.28) and (259.72,86.09) .. (259.72,113) .. controls (259.72,139.91) and (237.91,161.72) .. (211,161.72) .. controls (184.09,161.72) and (162.28,139.91) .. (162.28,113) -- cycle ;
+%Shape: Circle [id:dp9773613984359779] 
+\draw  [fill={rgb, 255:red, 127; green, 192; blue, 231 }  ,fill opacity=0.11 ][dash pattern={on 4.5pt off 4.5pt}] (230.03,113) .. controls (230.03,74.35) and (261.35,43.02) .. (300,43.02) .. controls (338.65,43.02) and (369.98,74.35) .. (369.98,113) .. controls (369.98,151.65) and (338.65,182.97) .. (300,182.97) .. controls (261.35,182.97) and (230.03,151.65) .. (230.03,113) -- cycle ;
+%Shape: Circle [id:dp69609627994047] 
+\draw  [fill={rgb, 255:red, 127; green, 192; blue, 231 }  ,fill opacity=0.14 ][dash pattern={on 4.5pt off 4.5pt}] (192.39,112.68) .. controls (192.39,102.39) and (200.72,94.21) .. (211,94.39) .. controls (221.28,94.56) and (229.61,103.04) .. (229.61,113.32) .. controls (229.61,123.61) and (221.28,131.79) .. (211,131.61) .. controls (200.72,131.44) and (192.39,122.96) .. (192.39,112.68) -- cycle ;
+%Shape: Circle [id:dp6366499429105177] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 3; green, 14; blue, 10 }  ,fill opacity=0.14 ][line width=0.75]  (260.29,113) .. controls (260.29,91.07) and (278.07,73.29) .. (300,73.29) .. controls (321.93,73.29) and (339.71,91.07) .. (339.71,113) .. controls (339.71,134.93) and (321.93,152.71) .. (300,152.71) .. controls (278.07,152.71) and (260.29,134.93) .. (260.29,113) -- cycle ;
+%Shape: Axis 2D [id:dp40333334108998553] 
+\draw  (149.89,113) -- (434.13,113)(211,21) -- (211,204) (427.13,108) -- (434.13,113) -- (427.13,118) (206,28) -- (211,21) -- (216,28)  ;
+%Shape: Ellipse [id:dp5618777383770377] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (209.35,113) .. controls (209.35,112.08) and (210.09,111.34) .. (211,111.34) .. controls (211.91,111.34) and (212.65,112.08) .. (212.65,113) .. controls (212.65,113.92) and (211.91,114.66) .. (211,114.66) .. controls (210.09,114.66) and (209.35,113.92) .. (209.35,113) -- cycle ;
+%Shape: Ellipse [id:dp1723534686260293] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (298.35,113) .. controls (298.35,112.08) and (299.09,111.34) .. (300,111.34) .. controls (300.91,111.34) and (301.65,112.08) .. (301.65,113) .. controls (301.65,113.92) and (300.91,114.66) .. (300,114.66) .. controls (299.09,114.66) and (298.35,113.92) .. (298.35,113) -- cycle ;
+%Shape: Circle [id:dp823378702207272] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (258.56,113) .. controls (258.56,112.36) and (259.08,111.84) .. (259.72,111.84) .. controls (260.36,111.84) and (260.87,112.36) .. (260.87,113) .. controls (260.87,113.64) and (260.36,114.16) .. (259.72,114.16) .. controls (259.08,114.16) and (258.56,113.64) .. (258.56,113) -- cycle ;
+%Shape: Circle [id:dp9184097105556417] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (228.41,113.32) .. controls (228.41,112.66) and (228.95,112.12) .. (229.61,112.12) .. controls (230.27,112.12) and (230.81,112.66) .. (230.81,113.32) .. controls (230.81,113.99) and (230.27,114.52) .. (229.61,114.52) .. controls (228.95,114.52) and (228.41,113.99) .. (228.41,113.32) -- cycle ;
+
+% Text Node
+\draw (416.8,92.8) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle x$};
+% Text Node
+\draw (218,18) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle y$};
+% Text Node
+\draw (263.67,99.83) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle z_{1}$};
+% Text Node
+\draw (232.68,114.3) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle z_{2}$};
+% Text Node
+\draw (294.8,115) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle x_{1}$};
+% Text Node
+\draw (197.65,114.7) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize] [align=left] {$\displaystyle x_{2}$};
+
+
+\end{tikzpicture}
